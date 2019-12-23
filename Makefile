@@ -1,3 +1,6 @@
+install:
+	pipenv install --dev
+
 check: check-black check-isort flake8 mypy
 
 format: black isort
