@@ -1,0 +1,2 @@
+# Run at 19:00 every evening before workday and kill at 01:00 if no ride found
+0 19 * * SAT,SUN,MON,TUE,WED cd /opt/hitchhiker && git pull && pipenv install --deploy && timeout 6h pipenv run main &>> /var/log/hitchhiker/hitchhiker.log
