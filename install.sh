@@ -4,12 +4,12 @@ DIRPATH=$(dirname "$(readlink -f "$0")")
 CRONTAB_FILE="$DIRPATH/hitchhiker.cron"
 
 function main() {
-    uid=`id -u`
+    user=`whoami`
     echo "Creating log dir at $LOGDIR"
     sudo mkdir -p "$LOGDIR"
-    sudo chown $uid "$LOGDIR"
+    sudo chown $user "$LOGDIR"
     echo "Installing crontab from $CRONTAB_FILE"
-    crontab -u $uid "$CRONTAB_FILE"
+    crontab -u $user "$CRONTAB_FILE"
     echo 'Done!'
 }
 
